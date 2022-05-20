@@ -15,49 +15,56 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:textSize="50dp"
-        android:paddingTop="60dp"
-        android:paddingBottom="100dp"
+        android:paddingTop="50dp"
+        android:paddingBottom="60dp"
         android:text="Location" />
 
-        <TextView
-            android:id="@+id/status"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Weather description"
-            android:textSize="20dp" />
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" />
 
-        <TextView
-            android:id="@+id/temp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="85dp"
-            android:fontFamily="sans-serif-thin"
-            android:layout_gravity="center"
-            android:text="29°C"/>
+    <TextView
+        android:id="@+id/status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Weather description"
+        android:textSize="20dp" />
 
-        <TextView
-            android:id="@+id/wind"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="25dp"
-            android:fontFamily="sans-serif"
-            android:layout_gravity="center"
-            android:text="4 m/s"/>
+    <TextView
+        android:id="@+id/temp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="75dp"
+        android:fontFamily="sans-serif-thin"
+        android:layout_gravity="center"
+        android:text="- °C"/>
 
-        <EditText
-            android:id="@+id/editText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:paddingTop="70dp"
-            android:hint="Enter a city"/>
+    <TextView
+        android:id="@+id/wind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25dp"
+        android:fontFamily="sans-serif"
+        android:layout_gravity="center"
+        android:text="- m/s"/>
 
-        <Button
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Search city" />
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="135dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_gravity="center"
+        android:paddingTop="50dp"
+        android:hint="Enter a city"/>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Search" />
 
 </LinearLayout>
