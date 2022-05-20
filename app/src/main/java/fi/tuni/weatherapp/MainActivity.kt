@@ -51,12 +51,15 @@ class MainActivity : AppCompatActivity() {
             val jsonObj = JSONObject(result!!)
             val main = jsonObj.getJSONObject("main")
             val wind = jsonObj.getJSONObject("wind")
+            val weather = jsonObj.getJSONArray("weather").getJSONObject(0)
 
             val windSpeed = wind.getString("speed")+" m/s"
+            val desc = weather.getString("description")
 
             val temp = main.getString("temp")+" °C"
 
             findViewById<TextView>(R.id.loc).text ="$cityName"
+            findViewById<TextView>(R.id.status).text ="$desc"
             findViewById<TextView>(R.id.temp).text = "$temp"
             findViewById<TextView>(R.id.wind).text = "$windSpeed"
 
