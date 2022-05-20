@@ -55,8 +55,11 @@ class MainActivity : AppCompatActivity() {
 
             val windSpeed = wind.getString("speed")+" m/s"
             val desc = weather.getString("description")
-
             val temp = main.getString("temp")+" °C"
+
+            //val icon = weather.getString("icon")
+            //val iconUrl = "http://openweathermap.org/img/w/$icon.png"
+            //findViewById<TextView>(R.id.icon).text ="$iconUrl"
 
             findViewById<TextView>(R.id.loc).text ="$cityName"
             findViewById<TextView>(R.id.status).text ="$desc"
