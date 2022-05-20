@@ -2,9 +2,7 @@ package fi.tuni.weatherapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
+import android.widget.*
 import org.json.JSONObject
 import java.net.URL
 import kotlin.concurrent.thread
@@ -25,12 +23,13 @@ class MainActivity : AppCompatActivity() {
             cityName = editText.text.toString()
             fetchData() {
                 this.runOnUiThread(Runnable{
-                    ??(it)
+                    onPostExecute(it)
+                    editText.setText("")
                 })
             }
         }
     }
-    
+
     fun fetchData(result: (String?) -> Unit): Unit {
         val apiKey = "e60a2984bb06e80c4f8e034c049ece51"
         thread {
@@ -44,6 +43,22 @@ class MainActivity : AppCompatActivity() {
                 response = null
             }
             result(response)
+        }
+    }
+
+    fun onPostExecute(result: String?) {
+        try {
+            val jsonObj = JSONObject(result!!)
+            val main = jsonObj.getJSONObject("main")
+
+            val temp = main.getString("temp")+" °C"
+
+            findViewById<TextView>(R.id.loc).text ="$cityName"
+            findViewById<TextView>(R.id.temp).text = "$temp"
+
+        } catch (e: Exception) {
+            println(e)
+            Toast.makeText(applicationContext,"Incorrect city name, try again", Toast.LENGTH_LONG).show()
         }
     }
 
