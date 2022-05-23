@@ -28,12 +28,14 @@ class MainActivity : AppCompatActivity() {
             fetchData() {
                 this.runOnUiThread( Runnable {
                     onPostExecute(it)
+                    /* Refresh the EditText field */
                     editText.setText("")
                 })
             }
         }
     }
 
+    /* Async task, what it does in the background */
     fun fetchData(result: (String?) -> Unit) {
         val apiKey = "e60a2984bb06e80c4f8e034c049ece51"
         thread {
@@ -50,6 +52,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    /* Extracting JSON returns from the API */
     @SuppressLint("SetTextI18n")
     fun onPostExecute(result: String?) {
         try {
@@ -69,6 +72,7 @@ class MainActivity : AppCompatActivity() {
             //val icon = weather.getString("icon")
             //val iconUrl = "http://openweathermap.org/img/w/$icon.png"
 
+            /* Populating extracted data into our textviews */
             findViewById<TextView>(R.id.loc).text = cityName
             findViewById<TextView>(R.id.status).text = desc.replaceFirstChar(Char::titlecase)
             findViewById<TextView>(R.id.temp).text = temp
@@ -78,6 +82,7 @@ class MainActivity : AppCompatActivity() {
 
         } catch (e: Exception) {
             println(e)
+            /* Incorrect city name pops up a Toast */
             Toast.makeText(applicationContext,"Incorrect city name, try again", Toast.LENGTH_LONG).show()
         }
     }
