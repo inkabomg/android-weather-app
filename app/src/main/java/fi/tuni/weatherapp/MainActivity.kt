@@ -59,10 +59,14 @@ class MainActivity : AppCompatActivity() {
             val main = jsonObj.getJSONObject("main")
             val wind = jsonObj.getJSONObject("wind")
             val weather = jsonObj.getJSONArray("weather").getJSONObject(0)
+            val sys = jsonObj.getJSONObject("sys")
 
             val windSpeed = wind.getString("speed")+" m/s"
             val desc = weather.getString("description")
             val temp = main.getString("temp")+" °C"
+
+            val sunrise:Long = sys.getLong("sunrise")
+            val sunset:Long = sys.getLong("sunset")
 
             //val icon = weather.getString("icon")
             //val iconUrl = "http://openweathermap.org/img/w/$icon.png"
@@ -72,6 +76,8 @@ class MainActivity : AppCompatActivity() {
             findViewById<TextView>(R.id.status).text ="$desc".replaceFirstChar(Char::titlecase)
             findViewById<TextView>(R.id.temp).text = "$temp"
             findViewById<TextView>(R.id.wind).text = "$windSpeed"
+            findViewById<TextView>(R.id.sunrise).text = "Sunrise: " + SimpleDateFormat("hh:mm a", Locale.ENGLISH).format(Date(sunrise*1000))
+            findViewById<TextView>(R.id.sunset).text = "Sunset: " + SimpleDateFormat("hh:mm a", Locale.ENGLISH).format(Date(sunset*1000))
 
         } catch (e: Exception) {
             println(e)
