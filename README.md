@@ -3,7 +3,7 @@ A simple mobile application that displays current weather: temperature, feels li
 
 ## Installation
 
-Clone the repo and install the dependencies.
+Clone the repo and install possible dependencies/plugins.
 
 ```git clone https://github.com/inkabomg/android-weather.app.git```
 
@@ -15,7 +15,7 @@ Open Android Studio and create a new project from the just downloaded source.
 
 **Step 2:** After clicking on the Project from Version Control a pop-up screen will arise. In the Version control choose Git from the drop-down menu.
 
-**Step 3:** Then at last paste the link in the URL and choose your Directory. Click on the Clone button and you are done.
+**Step 3:** Then at last paste the link in the URL and choose your Directory. Click on the Clone button and you are done. Install possible plugins.
 
 ## Motivation
 This is a Native Mobile Development course project work, an application using:
@@ -24,3 +24,13 @@ This is a Native Mobile Development course project work, an application using:
 - open RESTful API: https://openweathermap.org/api
 
 ## Screencast
+
+<div align="center">
+  <p>(Click photo to open YouTube link)</p>
+  <a href="https://youtu.be/YSmkhGdqbnc">
+  <img 
+    src="https://imgur.com/tcLLMLW.png"
+    alt="Native Mobile Development - Project" 
+    style="width:80%; margin: auto;">
+  </a>
+</div>
