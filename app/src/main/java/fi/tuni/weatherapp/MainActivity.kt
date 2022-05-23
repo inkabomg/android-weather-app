@@ -1,17 +1,14 @@
 package fi.tuni.weatherapp
 
-import android.content.pm.PackageManager
-import androidx.appcompat.app.AppCompatActivity
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.*
-import androidx.core.app.ActivityCompat
+import androidx.appcompat.app.AppCompatActivity
 import org.json.JSONObject
 import java.net.URL
 import java.text.SimpleDateFormat
 import java.util.*
-import java.util.jar.Manifest
 import kotlin.concurrent.thread
-import kotlin.math.roundToInt
 
 class MainActivity : AppCompatActivity() {
 
@@ -29,7 +26,7 @@ class MainActivity : AppCompatActivity() {
             /* Capitalizing the first letter automatically */
             cityName = editText.text.toString().replaceFirstChar(Char::titlecase)
             fetchData() {
-                this.runOnUiThread(Runnable{
+                this.runOnUiThread( Runnable {
                     onPostExecute(it)
                     editText.setText("")
                 })
@@ -37,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun fetchData(result: (String?) -> Unit): Unit {
+    fun fetchData(result: (String?) -> Unit) {
         val apiKey = "e60a2984bb06e80c4f8e034c049ece51"
         thread {
             var response : String?
@@ -53,6 +50,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     fun onPostExecute(result: String?) {
         try {
             val jsonObj = JSONObject(result!!)
@@ -61,21 +59,20 @@ class MainActivity : AppCompatActivity() {
             val weather = jsonObj.getJSONArray("weather").getJSONObject(0)
             val sys = jsonObj.getJSONObject("sys")
 
-            val windSpeed = wind.getString("speed")+" m/s"
+            val windSpeed = wind.getString("speed") + " m/s"
             val desc = weather.getString("description")
-            val temp = main.getString("temp")+" °C"
+            val temp = main.getString("temp") + " °C"
 
             val sunrise:Long = sys.getLong("sunrise")
             val sunset:Long = sys.getLong("sunset")
 
             //val icon = weather.getString("icon")
             //val iconUrl = "http://openweathermap.org/img/w/$icon.png"
-            //findViewById<TextView>(R.id.icon).text ="$iconUrl"
 
-            findViewById<TextView>(R.id.loc).text ="$cityName"
-            findViewById<TextView>(R.id.status).text ="$desc".replaceFirstChar(Char::titlecase)
-            findViewById<TextView>(R.id.temp).text = "$temp"
-            findViewById<TextView>(R.id.wind).text = "$windSpeed"
+            findViewById<TextView>(R.id.loc).text = cityName
+            findViewById<TextView>(R.id.status).text = desc.replaceFirstChar(Char::titlecase)
+            findViewById<TextView>(R.id.temp).text = temp
+            findViewById<TextView>(R.id.wind).text = windSpeed
             findViewById<TextView>(R.id.sunrise).text = "Sunrise: " + SimpleDateFormat("hh:mm a", Locale.ENGLISH).format(Date(sunrise*1000))
             findViewById<TextView>(R.id.sunset).text = "Sunset: " + SimpleDateFormat("hh:mm a", Locale.ENGLISH).format(Date(sunset*1000))
 
