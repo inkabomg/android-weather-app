@@ -15,10 +15,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:fontFamily="sans-serif"
+        android:fontFamily="sans-serif-thin"
         android:textSize="60dp"
-        android:textStyle="bold"
-        android:paddingTop="50dp"
+        android:paddingTop="35dp"
         android:paddingBottom="50dp"
         android:text="Location" />
 
@@ -40,8 +39,8 @@
         android:id="@+id/temp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="75dp"
-        android:fontFamily="sans-serif-thin"
+        android:textSize="70dp"
+        android:fontFamily="sans-serif-black"
         android:layout_gravity="center"
         android:text="- °C"/>
 
@@ -61,8 +60,7 @@
         android:textSize="18dp"
         android:fontFamily="sans-serif"
         android:layout_gravity="center"
-        android:paddingTop="20dp"
-        android:text="Sunrise: "/>
+        android:paddingTop="20dp" />
 
     <TextView
         android:id="@+id/sunset"
@@ -70,8 +68,7 @@
         android:layout_height="wrap_content"
         android:textSize="18dp"
         android:fontFamily="sans-serif"
-        android:layout_gravity="center"
-        android:text="Sunset: "/>
+        android:layout_gravity="center" />
 
     <EditText
         android:id="@+id/editText"
