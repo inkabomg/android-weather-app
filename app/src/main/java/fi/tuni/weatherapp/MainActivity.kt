@@ -71,11 +71,11 @@ class MainActivity : AppCompatActivity() {
             val sunrise:Long = sys.getLong("sunrise")
             val sunset:Long = sys.getLong("sunset")
 
-            // EI TOIMI
+            /*
             val imageView: ImageView = findViewById(R.id.imageView)
             val icon = weather.getString("icon")
             val iconUrl = "http://openweathermap.org/img/w/"
-            Picasso.with(this).load("$iconUrl$icon.png").into(imageView)
+            Picasso.with(this).load("$iconUrl$icon.png").into(imageView) */
 
             /* Populating extracted data into our textviews */
             findViewById<TextView>(R.id.loc).text = cityName
