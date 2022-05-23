@@ -23,12 +23,6 @@
         android:paddingBottom="20dp"
         android:text="Location" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
-        android:layout_gravity="center"
-        tools:src="@mipmap/ic_launcher" />
 
     <TextView
         android:id="@+id/status"
@@ -37,7 +31,19 @@
         android:layout_gravity="center"
         android:text="Weather description"
         android:paddingTop="10dp"
+        android:paddingBottom="15dp"
         android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/tempFeels"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:fontFamily="sans-serif"
+        android:layout_gravity="center"
+        android:paddingBottom="5dp"
+        android:text="Feels like" />
+
 
     <TextView
         android:id="@+id/temp"
@@ -47,16 +53,6 @@
         android:fontFamily="sans-serif-black"
         android:layout_gravity="center"
         android:text="- °C"/>
-
-    <TextView
-        android:id="@+id/tempFeels"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18dp"
-        android:fontFamily="sans-serif"
-        android:layout_gravity="center"
-        android:paddingBottom="15dp"
-        android:text="Feels like" />
 
     <TextView
         android:id="@+id/wind"
@@ -90,7 +86,7 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:layout_gravity="center"
-        android:paddingTop="40dp"
+        android:paddingTop="20dp"
         android:hint="Enter a city"/>
 
     <Button
