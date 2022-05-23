@@ -65,6 +65,7 @@ class MainActivity : AppCompatActivity() {
             val windSpeed = wind.getString("speed") + " m/s"
             val desc = weather.getString("description")
             val temp = main.getString("temp") + " °C"
+            val tempFeels = main.getString("feels_like") + " °C"
 
             val sunrise:Long = sys.getLong("sunrise")
             val sunset:Long = sys.getLong("sunset")
@@ -76,6 +77,7 @@ class MainActivity : AppCompatActivity() {
             findViewById<TextView>(R.id.loc).text = cityName
             findViewById<TextView>(R.id.status).text = desc.replaceFirstChar(Char::titlecase)
             findViewById<TextView>(R.id.temp).text = temp
+            findViewById<TextView>(R.id.tempFeels).text = "Feels like $tempFeels"
             findViewById<TextView>(R.id.wind).text = windSpeed
             findViewById<TextView>(R.id.sunrise).text = "Sunrise: " + SimpleDateFormat("hh:mm a", Locale.ENGLISH).format(Date(sunrise*1000))
             findViewById<TextView>(R.id.sunset).text = "Sunset: " + SimpleDateFormat("hh:mm a", Locale.ENGLISH).format(Date(sunset*1000))
