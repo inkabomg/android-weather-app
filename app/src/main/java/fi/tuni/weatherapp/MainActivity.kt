@@ -1,11 +1,17 @@
 package fi.tuni.weatherapp
 
+import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
+import androidx.core.app.ActivityCompat
 import org.json.JSONObject
 import java.net.URL
+import java.text.SimpleDateFormat
+import java.util.*
+import java.util.jar.Manifest
 import kotlin.concurrent.thread
+import kotlin.math.roundToInt
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,7 +26,8 @@ class MainActivity : AppCompatActivity() {
         button = findViewById(R.id.button)
         editText = findViewById(R.id.editText)
         button.setOnClickListener {
-            cityName = editText.text.toString()
+            /* Capitalizing the first letter automatically */
+            cityName = editText.text.toString().replaceFirstChar(Char::titlecase)
             fetchData() {
                 this.runOnUiThread(Runnable{
                     onPostExecute(it)
@@ -62,7 +69,7 @@ class MainActivity : AppCompatActivity() {
             //findViewById<TextView>(R.id.icon).text ="$iconUrl"
 
             findViewById<TextView>(R.id.loc).text ="$cityName"
-            findViewById<TextView>(R.id.status).text ="$desc"
+            findViewById<TextView>(R.id.status).text ="$desc".replaceFirstChar(Char::titlecase)
             findViewById<TextView>(R.id.temp).text = "$temp"
             findViewById<TextView>(R.id.wind).text = "$windSpeed"
 
