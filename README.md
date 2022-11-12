@@ -22,15 +22,3 @@ This is a Native Mobile Development course project work, an application using:
 
 - kotlin in Android Studio (in an emulator, I used Pixel XL API 31)
 - open RESTful API: https://openweathermap.org/api
-
-## Screencast
-
-<div align="center">
-  <p>(Click photo to open YouTube link)</p>
-  <a href="https://youtu.be/YSmkhGdqbnc">
-  <img 
-    src="https://imgur.com/tcLLMLW.png"
-    alt="Native Mobile Development - Project" 
-    style="width:80%; margin: auto;">
-  </a>
-</div>
